@@ -1,0 +1,86 @@
+.login-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-main-container .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 512px;
+  padding: 20px;
+}
+
+.login-main-container h2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.login-main-container .login-container {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.login-main-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 480px;
+  margin: auto;
+}
+
+.login-main-container label {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  display: block;
+}
+
+.login-main-container input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #3d3d3d;
+  background-color: #242424;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.login-main-container input::placeholder {
+  color: #999999;
+}
+
+.login-main-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #019863;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-main-container button:hover {
+  background-color: #017a50;
+}
+
+.login-main-container .signup-link {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999999;
+}
+
+.login-main-container .signup-link a {
+  color: white;
+  text-decoration: underline;
+}
