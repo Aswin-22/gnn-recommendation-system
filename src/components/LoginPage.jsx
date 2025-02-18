@@ -13,7 +13,7 @@ const LoginPage = () => {
             <h2>Welcome back</h2>
             <form>
               <label>Email</label>
-              <input type="email" placeholder="example@gmail.com" />
+              <input type="email" placeholder="BabaYagaWick@xyz.com" />
               <label>Password</label>
               <input type="password" placeholder="•••••••••" />
               <button type="submit">Log in</button>

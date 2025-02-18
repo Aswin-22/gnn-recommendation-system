@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
+import ImageSlider from "./ImageSlider";
 
 function HomePage() {
+  const [isOn, setIsOn] = useState(true);
   return (
     <div className="layout-container">
       <Header />
@@ -105,7 +107,12 @@ function HomePage() {
           </div>
         </div>
         <div className="recommendation-button-container">
-          <button className="btn-recommendations">Get recommendations</button>
+          <button
+            className="btn-recommendations"
+            onClick={() => setIsOn((pre) => !pre)}
+          >
+            Get recommendations
+          </button>
         </div>
         <div className="progress-section">
           <div className="progress-header">
@@ -120,6 +127,7 @@ function HomePage() {
           </p>
         </div>
       </div>
+      {isOn && <ImageSlider />}
     </div>
   );
 }

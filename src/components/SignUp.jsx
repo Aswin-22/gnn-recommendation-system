@@ -16,7 +16,7 @@ function SignUp() {
                 <label>Full Name</label>
                 <input type="text" placeholder="Jhon Wick" />
                 <label>Email</label>
-                <input type="email" placeholder="example@gmail.com" />
+                <input type="email" placeholder="BabaYagaWick@xyz.com" />
                 <label>Password</label>
                 <input type="password" placeholder="•••••••••" />
                 <label>Confirm Password</label>

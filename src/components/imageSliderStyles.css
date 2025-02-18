@@ -1,0 +1,346 @@
+.slider-wrapper {
+  position: relative;
+  color: black !important;
+}
+
+.slider-wrapper .slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.slider-wrapper .grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 60px;
+  margin: 20px 0;
+  min-height: 400px;
+}
+
+.slider-wrapper .card {
+  background: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px 0px 0px 0px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.slider-wrapper .profile-user {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #73ab84;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.slider-wrapper .profile-svg {
+  width: 90%;
+  height: 120%;
+  margin-top: 50%;
+  object-fit: cover;
+}
+
+.slider-wrapper .profile-modal-svg {
+  width: 90%;
+  height: 120%;
+  margin-top: 50%;
+  object-fit: cover;
+}
+
+.slider-wrapper .profile-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 60px;
+  overflow: hidden;
+}
+.slider-wrapper .card .songs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-wrapper .card p {
+  color: white;
+}
+
+.slider-wrapper .card hr {
+  width: 90%;
+  border: 0.5px solid #73ab84;
+}
+
+.slider-wrapper .card.empty {
+  visibility: hidden;
+  cursor: default;
+}
+
+.slider-wrapper .card:hover:not(.empty) {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider-wrapper .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.slider-wrapper .arrow-svg {
+  height: 20px;
+  width: 24px;
+}
+
+.slider-wrapper .modal-content {
+  background: #1a1a1a;
+  color: white;
+  padding: 44px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.slider-wrapper .profile-image-modal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.slider-wrapper .profile-user-modal {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #73ab84;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.slider-wrapper .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-wrapper .profile-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #3498db;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.slider-wrapper .close-button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.slider-wrapper .close-button:hover {
+  background-color: #f0f0f0;
+}
+
+.slider-wrapper .modal-content h2 {
+  text-align: center;
+  font-size: 36px;
+  margin: 0 0 20px 0;
+  color: white;
+}
+
+.slider-wrapper .song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slider-wrapper .song {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-wrapper .song-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.slider-wrapper .modal-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3cb35a;
+  font-weight: 500;
+  gap: 220px;
+}
+
+.slider-wrapper .song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #2e2e2e;
+  border-radius: 6px;
+  color: white;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ...  ... */
+
+.slider-wrapper .nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.slider-wrapper .nav-button:hover:not(.disabled) {
+  background: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider-wrapper .nav-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider-wrapper .prev {
+  left: 10px;
+}
+
+.slider-wrapper .next {
+  right: 10px;
+}
+
+.slider-wrapper .dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.slider-wrapper .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-wrapper .dot.active {
+  background: #666;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 60px;
+  margin: 20px 0;
+  min-height: 400px;
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease;
+}
+
+.grid-container.slide-left {
+  animation: slideLeft 0.5s ease-in-out;
+}
+
+.grid-container.slide-right {
+  animation: slideRight 0.5s ease-in-out;
+}
