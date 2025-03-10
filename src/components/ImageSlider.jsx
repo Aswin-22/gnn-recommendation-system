@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { userData } from "../users";
+import {
+  getSongCoversMap,
+  extractUniqueSongNames,
+} from "./services/songCoverUtil";
 import "./imageSliderStyles.css";
 
 const ImageSlider = () => {
@@ -9,7 +13,8 @@ const ImageSlider = () => {
   const [selectedUserData, setSelectedUserData] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [userImages, setUserImages] = useState({});
-
+  const [songCovers, setSongCovers] = useState({});
+  const [loading, setLoading] = useState(false);
   const getRandomImageNumber = () => Math.floor(Math.random() * 7) + 1;
 
   useEffect(() => {
@@ -33,6 +38,25 @@ const ImageSlider = () => {
       return () => clearTimeout(timer);
     }
   }, [slideDirection]);
+
+  const fetchSongCovers = async () => {
+    try {
+      setLoading(true);
+
+      const uniqueSongNames = extractUniqueSongNames(userData);
+      const coversMap = await getSongCoversMap(uniqueSongNames);
+
+      setSongCovers(coversMap);
+      setLoading(false);
+      console.log("Song covers fetched successfully:", coversMap);
+    } catch (err) {
+      console.error("Failed to fetch song covers:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchSongCovers();
+  }, []);
 
   const getCurrentSlideUsers = () => {
     const startIdx = currentSlide * 6;
@@ -111,7 +135,25 @@ const ImageSlider = () => {
                   </div>
                   <div className="songs">
                     <hr />
-                    <p>{Object.keys(userSongs).length} Songs</p>
+                    <div className="song-profile">
+                      <div className="song-mini-cover">
+                        <img
+                          class="circle"
+                          src={songCovers[userSongs.song1.name]}
+                        ></img>
+                        <img
+                          class="circle"
+                          src={songCovers[userSongs.song2.name]}
+                        ></img>
+                        <img
+                          class="circle"
+                          src={songCovers[userSongs.song3.name]}
+                        ></img>
+                        <p className="songs-length">
+                          {Object.keys(userSongs).length} Songs
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </>
               )}
@@ -172,26 +214,33 @@ const ImageSlider = () => {
               </div>
               <h2>{selectedUser}</h2>
             </div>
-            <div className="song-list">
-              <div className="modal-meta">
-                <span>Song Name</span>
-                <span>Strength</span>
-              </div>
-              {Object.entries(selectedUserData).map(
-                ([songKey, songData], idx) => (
-                  <div key={idx} className="song-item">
-                    <div className="song">
-                      <div className="song-image">.</div>
-                      <span className="song-name">{songData.name}</span>
+            {loading ? (
+              <div>Loading Song cover</div>
+            ) : (
+              <div className="song-list">
+                <div className="modal-meta">
+                  <span>Song Name</span>
+                  <span>Strength</span>
+                </div>
+                {Object.entries(selectedUserData).map(
+                  ([songKey, songData], idx) => (
+                    <div key={idx} className="song-item">
+                      <div className="song">
+                        <img
+                          className="song-image"
+                          src={songCovers[songData.name]}
+                        ></img>
+                        <span className="song-name">{songData.name}</span>
+                      </div>
+                      <span className="song-strength">
+                        {" "}
+                        {songData.strength.toFixed(2)}
+                      </span>
                     </div>
-                    <span className="song-strength">
-                      {" "}
-                      {songData.strength.toFixed(2)}
-                    </span>
-                  </div>
-                )
-              )}
-            </div>
+                  )
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -69,6 +69,39 @@
   border-radius: 60px;
   overflow: hidden;
 }
+
+.slider-wrapper .song-mini-cover {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+}
+
+.slider-wrapper .song-mini-cover .circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  background: transparent;
+}
+
+.circle:nth-child(1) {
+  left: 0;
+}
+.circle:nth-child(2) {
+  left: 28px;
+}
+.circle:nth-child(3) {
+  left: 56px;
+}
+
+.slider-wrapper .songs-length {
+  margin-left: 40%;
+}
+
 .slider-wrapper .card .songs {
   width: 100%;
   display: flex;
@@ -343,4 +376,32 @@
 
 .grid-container.slide-right {
   animation: slideRight 0.5s ease-in-out;
+}
+
+.upload-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-area:hover {
+  border-color: #73ab84;
+  background-color: rgba(115, 171, 132, 0.05);
+}
+
+.upload-area.drag-active {
+  border-color: #73ab84;
+  background-color: rgba(115, 171, 132, 0.1);
+}
+
+.btn-recommendations:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
