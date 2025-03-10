@@ -135,25 +135,29 @@ const ImageSlider = () => {
                   </div>
                   <div className="songs">
                     <hr />
-                    <div className="song-profile">
-                      <div className="song-mini-cover">
-                        <img
-                          class="circle"
-                          src={songCovers[userSongs.song1.name]}
-                        ></img>
-                        <img
-                          class="circle"
-                          src={songCovers[userSongs.song2.name]}
-                        ></img>
-                        <img
-                          class="circle"
-                          src={songCovers[userSongs.song3.name]}
-                        ></img>
-                        <p className="songs-length">
-                          {Object.keys(userSongs).length} Songs
-                        </p>
+                    {loading ? (
+                      <div style={{ color: "white" }}>Loading Song Covers</div>
+                    ) : (
+                      <div className="song-profile">
+                        <div className="song-mini-cover">
+                          <img
+                            className="circle"
+                            src={songCovers[userSongs.song1.name]}
+                          ></img>
+                          <img
+                            class="circle"
+                            src={songCovers[userSongs.song2.name]}
+                          ></img>
+                          <img
+                            class="circle"
+                            src={songCovers[userSongs.song3.name]}
+                          ></img>
+                          <p className="songs-length">
+                            {Object.keys(userSongs).length} Songs
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </>
               )}
